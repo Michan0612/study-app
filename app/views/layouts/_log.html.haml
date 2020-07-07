@@ -1,0 +1,26 @@
+%h1.log-title.col-2 Logs
+- if @user.microposts.any?
+  .container
+    %ol.microposts
+      - @microposts.each do |micropost|
+        %li{:id => "micropost-#{micropost.id}"}
+          %span.row.log-list
+            %span.col-2.log-timestamp.d-none.d-md-inline-block.log-timestamp-block
+              %span.log-timestamp
+                = time_ago_in_words(micropost.created_at)
+                前
+            %span.col-md-10.col-log-memos
+              .log-time-and-edit
+                .row
+                  %span.log-time.col-3
+                    = micropost.time
+                    分
+                  %span.col-7.log-timestamp.log-timestamp-inline
+                    = time_ago_in_words(micropost.created_at)
+                    前
+                  %span.log-edit.col-2= link_to image_tag('edit.png', class: "log-edit-image"), '#'
+              %span.log-memo= micropost.memo
+              %span.log-picture= micropost.picture
+  = paginate @microposts
+- else
+  %span まだ投稿がありません
