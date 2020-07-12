@@ -1,0 +1,32 @@
+- provide(:title, 'プロフィール編集')
+.container.edit-container
+  .edit-titles
+    = image_tag 'profile.png', class: 'edit-img'
+    %h1.title.edit-title プロフィール編集
+  .card-deck
+    .col-md-6
+      %section.card
+        %h2.card-header.title.form-title.edit-user-card-title アカウント情報変更
+        = form_with(model: @user, url: user_path(@user), local: true) do |form|
+          .card-body
+            = render 'shared/error_messages', object: form.object
+            .form-group
+              = form.text_field :name, class: 'form-control', placeholder: "名前"
+            .form-group
+              = form.email_field :email, class: 'form-control', placeholder: "メールアドレス"
+            .form-group
+              = form.password_field :password, class: 'form-control', placeholder: "パスワード"
+            .form-group
+              = form.password_field :password_confirmation, class: 'form-control', placeholder: "パスワード（再入力）"
+            .form-group
+              = form.submit "変更", class: 'btn btn-info btn-lg form-submit'
+    .col-md-6
+      %section.card
+        %h2.card-header.title.form-title.edit-user-card-title 記録時間リセット
+        = form_with(scope: :microposts, url: user_path(@user), method: :delete, data: { confirm: "本当に削除しますか？" },  local: true) do |form|
+          .card-body
+            .form-group.form-group-reset_time
+              = form.check_box :reset_time, class: 'form-check-input'
+              = form.label :reset_time, '記録時間をリセットする（時間がかかる場合があります）', class: 'form-check-label'
+            .form-group
+              = form.submit "変更", class: 'btn btn-info btn-lg form-submit', id: 'microposts_reset_time_submit'

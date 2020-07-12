@@ -1,0 +1,21 @@
+.container.figure-container
+  %h1.title グラフ
+  .figure-sum-and-button.row
+    %span.figure-sum-text.col-sm
+      %div
+        合計：
+        %em.figure-sum= sum_times
+        分
+      %div
+        （
+        %em.figure-sum= to_hour
+        時間）
+    %span.dropdown.col-sm
+      %button#dropdownMenuButton.btn.btn-secondary.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :type => "button"}
+        = @user.microposts_period(@period).keys.first
+        \- #{@user.microposts_period(@period).keys.last}
+      .dropdown-menu{"aria-labelledby" => "dropdownMenuButton"}
+      = link_to "週間", user_path(@user, period: "week"), class: "dropdown-item"
+      = link_to "月間", user_path(@user, period: "month"), class: "dropdown-item"
+      = link_to "年間", user_path(@user, period: "year"), class: "dropdown-item"
+  = line_chart @chart

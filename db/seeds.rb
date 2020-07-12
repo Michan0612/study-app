@@ -1,11 +1,11 @@
 User.create!(
-    email: 'emily@gmail.com',
+    email: 'jonh@gmail.com',
     password: 'foobar',
     password_confirmation: 'foobar',
 )
 
 5.times do |n|
-  email = "emily_#{n+1}@gmail.com"
+  email = "jonh_#{n+1}@gmail.com"
   password = 'password'
 
   User.create!(
