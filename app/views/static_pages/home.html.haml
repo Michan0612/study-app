@@ -1,0 +1,26 @@
+.jumbotron.jumbotron-fluid.jumbotron-extend
+  .container
+    %h1 動画を愛そう。
+    %p 動画をみる時、人生は幸せ？それとも罪悪感？
+    %p Lantern Lanternは、学習と娯楽に費やした動画時間を入力し、
+    %p 1日の、1ヶ月の、1年の動画時間を計測します。
+    %p Lantern Lanternは、動画の時間を貯金します。
+    = link_to "はじめる", new_user_session_path, class: "btn btn-info btn-lg"
+.container
+  .container.discription-container
+    .row
+      .col-md-4
+        .discription-img-container
+          = image_tag 'movie.png', class: 'discription-img'
+        %h2 学習時間を入力
+        %p 学習時間を入力することで勉強に使った時間を可視化することが可能です。
+      .col-md-4
+        .discription-img-container
+          = image_tag 'art.png', class: 'discription-img'
+        %h2 学習時間や娯楽時間にも
+        %p 学習など有効的に活用し記録することで有意義と感じる心理的効果が期待できます。
+      .col-md-4
+        .discription-img-container
+          = image_tag 'memo.png', class: 'discription-img'
+        %h2 日記にも使える
+        %p ログ機能によりどんな動画を観たのかどんな感想を持ったのかを記録することも可能です。動画との人生を豊かにする日記となるでしょう。

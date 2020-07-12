@@ -13,14 +13,19 @@
               .log-time-and-edit
                 .row
                   %span.log-time.col-3
-                    = micropost.time
-                    分
+                    - if micropost.time.nil?
+                      0分
+                    - else
+                      = micropost.time
+                      分
                   %span.col-7.log-timestamp.log-timestamp-inline
                     = time_ago_in_words(micropost.created_at)
                     前
-                  %span.log-edit.col-2= link_to image_tag('edit.png', class: "log-edit-image"), '#'
-              %span.log-memo= micropost.memo
-              %span.log-picture= micropost.picture
-  = paginate @microposts
+                  %span.log-edit.col-2= link_to image_tag('edit.png', class: "log-edit-image"), edit_micropost_path(micropost)
+              - if micropost.memo.present?
+                .log-memo= micropost.memo
+              - if micropost.picture.attached?
+                .log-picture= image_tag micropost.resize_picture
+    = paginate @microposts
 - else
   %span まだ投稿がありません

@@ -26,6 +26,12 @@ gem 'faker'
 gem 'hamlit'
 gem 'kaminari'
 gem 'kaminari-bootstrap'
+gem 'better_errors'
+gem 'binding_of_caller'
+gem 'mini_magick'
+gem 'chartkick'
+gem 'bootstrap', '~> 4.3.1'
+gem 'jquery-rails'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
@@ -38,6 +44,8 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rubocop-rails'
   gem 'dotenv-rails'
+  gem 'pry-byebug'
+
 end
 
 group :development do
