@@ -2,11 +2,11 @@
   %h1.title グラフ
   .figure-sum-and-button.row
     %span.figure-sum-text.col-sm
-      %div
+      %div.text
         合計：
         %em.figure-sum= sum_times
         分
-      %div
+      %div.text
         （
         %em.figure-sum= to_hour
         時間）
@@ -15,7 +15,9 @@
         = @user.microposts_period(@period).keys.first
         \- #{@user.microposts_period(@period).keys.last}
       .dropdown-menu{"aria-labelledby" => "dropdownMenuButton"}
-      = link_to "週間", user_path(@user, period: "week"), class: "dropdown-item"
-      = link_to "月間", user_path(@user, period: "month"), class: "dropdown-item"
-      = link_to "年間", user_path(@user, period: "year"), class: "dropdown-item"
+        = link_to "週間", user_path(@user, period: "week"), class: "dropdown-item"
+        = link_to "月間", user_path(@user, period: "month"), class: "dropdown-item"
+        = link_to "年間", user_path(@user, period: "year"), class: "dropdown-item"
+
+      
   = line_chart @chart

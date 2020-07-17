@@ -4,15 +4,20 @@ class MicropostsController < ApplicationController
   
     def create
       @user = current_user
-      @micropost = current_user.microposts.build
-      @microposts = @user.microposts.page(params[:page]).per(10)
-  
-      if @micropost.save
+      @micropost = Micropost.new(micropost_params)
+      @micropost.user = current_user
+      
+      if @micropost.save!
         redirect_to current_user
       else
         render 'users/show'
       end
+
+      @microposts = @user.microposts.page(params[:page]).per(10)
+
     end
+
+    
   
     def edit
       @micropost = current_user.microposts.find_by(id: params[:id]) || nil

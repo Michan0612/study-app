@@ -1,14 +1,10 @@
 - provide(:title, @user.email)
 .container.show-container
   .row
-    .col.bg-primary
-      form
-    .col.bg-secondary
-      figure
-  .row
     .col 
+      .wrap
+        = render 'layouts/micropost_form'
+        = render 'layouts/figure'
       = render 'layouts/log'
-      = render 'layouts/micropost_form'
-      = render 'layouts/figure'
      
 

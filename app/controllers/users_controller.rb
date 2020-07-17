@@ -4,15 +4,19 @@ class UsersController < ApplicationController
       @user = User.find(params[:id])
       @microposts = @user.microposts.page(params[:page]).per(10)
       @period = params[:period]
-      
       @chart = @user.microposts_period(@period)
+    
+      @micropost = Micropost.new
+      @micropost.user = current_user
     end
 
     def new
       @user = User.new
+      
     end
   
     def create
+
       @user = User.new
       if @user.save
         flash[:success] = "Lantern Lanternの世界へようこそ"

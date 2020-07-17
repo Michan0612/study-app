@@ -10,20 +10,24 @@ $lantern-yellow: #bdb319;
 $lantern-blue: #0071bc;
 $lantern-dark-blue: #0c2e64;
 
-$lantern-light-white: #f5f5f6;
-$lantern-dark-white: #cdced1;
-$lantern-black: #050c17;
-$lantern-red: #b1046b;
-$lantern-violet: #640c41;
-$lantern-yellow: #bdb319;
-$lantern-blue: #0071bc;
-$lantern-dark-blue: #0c2e64;
-
 body {
   background-color: $lantern-black;
+  margin-top: 54px;
+}
+
+.container {
+  margin: 10px;
+}
+
+.text {
+  color: $lantern-light-white;
 }
 
 // header
+
+h1 {
+  color: $lantern-light-white;
+}
 
 .navbar-extend {
   margin-bottom: 0;
@@ -50,8 +54,10 @@ body {
 .jumbotron-extend {
   background-size: cover;
   background-repeat: no-repeat;
+  text-align: center;
   .container {
     margin-top: 6rem;
+    width: 100%;
     h1,
     p {
       margin-bottom: 0.75rem;
@@ -170,6 +176,7 @@ body {
       }
   
       .log-memo {
+        color: $lantern-light-white;
       }
   
       .log-picture {
@@ -180,12 +187,15 @@ body {
   // paginate
   .pagination {
     margin-top: 1.6rem;
+    justify-content: center;
   
     .page-item {
       .page-link {
-        border: 1px solid $lantern-light-white;
-        background-color: $lantern-light-white;
+        border: none; 
         color: $lantern-blue;
+        &hover {
+          border-radius: 15px;
+        }
       }
     }
   
@@ -193,6 +203,7 @@ body {
       background-color: $lantern-blue;
       border-color: $lantern-blue;
       color: $lantern-light-white;
+      border-radius: 15px; 
     }
   }
   
@@ -249,6 +260,10 @@ body {
   .btn-extend {
     width: 8.5rem;
   }
+
+  .btn-info {
+    width: 100%;
+  }
   
   // header
   .navbar-extend {
@@ -287,3 +302,39 @@ body {
   .nav-link {
     color: $lantern-dark-white;
   }
+
+  // figure
+  .wrap {
+    display: flex;
+  }
+
+  //form
+  input, select {
+    &.text {
+      width: 100%;
+      margin: 8px 0px;
+      padding: 16px 24px;
+      border: 1px solid #EBEBEB;
+      color: $lantern-black;
+      ;
+    }
+  }
+  
+  label {
+    font-size: 12px;
+  }
+  
+  textarea, trix-editor {
+    width: 100%;
+    margin: 8px 0px;
+    padding: 8px 8px;
+    min-height: 440px;
+    resize: vertical;
+    border: 1px solid #EBEBEB;
+
+    &.sm {
+      min-height: 160px;
+    }
+    
+  }
+

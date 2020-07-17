@@ -5,5 +5,5 @@ Rails.application.routes.draw do
   resources :users
   resources :cards
   resources :maps, only: [:index]
-  resources :microposts, only: [:create, :edit, :update, :destroy]
+  resources :microposts
 end
